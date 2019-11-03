@@ -46,10 +46,10 @@ form.addEventListener('submit', function(event){
       document.getElementById("copilotStatus").style.visibility = "visible";
       document.getElementById("copilotStatus").innerHTML = `${copilotName} is ready for launch`
       document.getElementById("fuelStatus").style.visibility = "visible";
-      document.getElementById("fuelStatus").innerHTML = `${fuelLevel} is ready for launch`
+      document.getElementById("fuelStatus").innerHTML = `${fuelLevel}`
       document.getElementById("cargoStatus").style.visibility = "visible";
-      document.getElementById("cargoStatus").innerHTML = `${cargoMass} is ready for launch`
-      alert(`WELCOME, ${pilotName}`)
+      document.getElementById("cargoStatus").innerHTML = `${cargoMass}`
+      alert(`Welcome, ${pilotName}`)
       event.preventDefault();
    }
    
@@ -69,6 +69,8 @@ form.addEventListener('submit', function(event){
    else {
       heading2.textContent = "Shuttle Ready for Launch";
       heading2.style.color = "green";
+      document.getElementById("fuelStatus").innerHTML = "Enough fuel for launch";
+      document.getElementById("cargoStatus").innerHTML = "Cargo weight appropriate for launch";
       event.preventDefault();
    }
 
