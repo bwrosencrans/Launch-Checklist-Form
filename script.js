@@ -28,8 +28,8 @@ form.addEventListener('submit', function(event){
 
 
 
-   if(pilotName == "" || copilotName == "") {
-      alert("NEED A PILOT AND A COPILOT")
+   if(pilotName == "" || copilotName == "" || fuelLevel == "" || cargoMass == "") {
+      alert("ALL FIELDS MUST BE FILLED")
       event.preventDefault()
    } 
    else if(!isNaN(pilotName) || !isNaN(copilotName)) {
@@ -54,7 +54,7 @@ form.addEventListener('submit', function(event){
    }
    
    let heading2 = document.getElementById("launchStatus");
-   if(Number(fuelLevel) < 10000) {
+   if(Number(fuelLevel) < 10000 && fuelLevel != "") {
       document.getElementById("fuelStatus").innerHTML = "Fuel level too low for launch";
       heading2.textContent = "Shuttle Not Ready for Launch";
       heading2.style.color = "red";
@@ -67,7 +67,7 @@ form.addEventListener('submit', function(event){
       event.preventDefault();
    }
    
-   if(Number(cargoMass) > 10000) {
+   if(Number(cargoMass) > 10000 && cargoMass != "") {
       document.getElementById("cargoStatus").innerHTML = "Cargo level too high for launch";
       heading2.textContent = "Shuttle Not Ready for Launch";
       heading2.style.color = "red";
