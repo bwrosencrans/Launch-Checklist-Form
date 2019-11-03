@@ -60,6 +60,13 @@ form.addEventListener('submit', function(event){
       heading2.style.color = "red";
       event.preventDefault();
    }
+   else {
+      heading2.textContent = "Shuttle Ready for Launch";
+      heading2.style.color = "green";
+      document.getElementById("fuelStatus").innerHTML = "Enough fuel for launch";
+      event.preventDefault();
+   }
+   
    if(Number(cargoMass) > 10000) {
       document.getElementById("cargoStatus").innerHTML = "Cargo level too high for launch";
       heading2.textContent = "Shuttle Not Ready for Launch";
@@ -69,7 +76,6 @@ form.addEventListener('submit', function(event){
    else {
       heading2.textContent = "Shuttle Ready for Launch";
       heading2.style.color = "green";
-      document.getElementById("fuelStatus").innerHTML = "Enough fuel for launch";
       document.getElementById("cargoStatus").innerHTML = "Cargo weight appropriate for launch";
       event.preventDefault();
    }
