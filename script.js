@@ -54,30 +54,33 @@ form.addEventListener('submit', function(event){
    }
    
    let heading2 = document.getElementById("launchStatus");
-   if(Number(fuelLevel) < 10000 && fuelLevel != "") {
+   if(Number(fuelLevel) < 10000) {
       document.getElementById("fuelStatus").innerHTML = "Fuel level too low for launch";
-      heading2.textContent = "Shuttle Not Ready for Launch";
-      heading2.style.color = "red";
+      //heading2.textContent = "Shuttle Not Ready for Launch";
+      //heading2.style.color = "red";
       event.preventDefault();
    }
    else {
-      heading2.textContent = "Shuttle Ready for Launch";
-      heading2.style.color = "green";
       document.getElementById("fuelStatus").innerHTML = "Enough fuel for launch";
       event.preventDefault();
    }
    
-   if(Number(cargoMass) > 10000 && cargoMass != "") {
+   if(Number(cargoMass) > 10000) {
       document.getElementById("cargoStatus").innerHTML = "Cargo level too high for launch";
-      heading2.textContent = "Shuttle Not Ready for Launch";
-      heading2.style.color = "red";
       event.preventDefault();
    }
    else {
-      heading2.textContent = "Shuttle Ready for Launch";
-      heading2.style.color = "green";
       document.getElementById("cargoStatus").innerHTML = "Cargo weight appropriate for launch";
       event.preventDefault();
+   }
+
+   if(Number(fuelLevel) >= 10000 && Number(cargoMass) <= 10000) {
+      heading2.textContent = "Shuttle Ready for Launch";
+      heading2.style.color = "green";
+      event.preventDefault();
+   } else {
+      heading2.textContent = "Shuttle Not Ready for Launch";
+      heading2.style.color = "red";
    }
 
 
